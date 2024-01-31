@@ -1,0 +1,34 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edenthough | Create Your Thought</title>
+</head>
+{% include 'journal/navbar.html' %} 
+{% block content %}
+<br>
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h1> Create a Thought </h1>
+    <br> <br>
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+
+        {{CreateThoughtForm|crispy}}
+
+        <br> 
+
+        <button class="btn btn-outline-primary btn-md w-100 btn-block p-4"  type="submit"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> &nbsp; Create Thought</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
+</html>
+
+
+
+
+

@@ -1,0 +1,68 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=E, initial-scale=1.0">
+    <title>Edenthough | Login</title>
+
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+            <p id="message-timer" class="alert alert-success float-center text-center message-text">
+                <i class="fa fa-check" aria-hidden="true"></i> 
+                &nbsp; 
+                {{message}}
+            </p>
+
+        {% endif %}
+
+    {% endfor %}
+    <br>
+    <div class="container bg-white shadow-md p-5 form-layout">
+        <h3> Login to your account </h3>
+
+        <h5> Share your thought today! </h5>
+
+        <br>
+        <br>
+
+        
+
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            {{LoginForm|crispy}}
+
+            <br> 
+
+            <button class="btn btn-secondary btn-md w-100 btn-block p-4"  type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i> &nbsp; Login</button>
+
+            <div class="text-center">
+                <br>
+                <a href="{% url 'register' %}">Don't have an account?</a>
+                <br> <br>
+                <a href="{% url 'reset_password' %}">Forgot your password?</a>
+        
+            </div>
+
+            </form>
+
+    </div>
+    <br>
+
+    <script src="{% static 'js/app.js' %}"></script>
+    
+</body>
+</html>
+
+
+

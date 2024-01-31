@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edenthough | Profile Management</title>
+</head>
+{% include 'journal/navbar.html' %} 
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h3> Update Profile </h3>
+    <p>You can change your profile down below: </p>
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{UserUpdateForm|crispy}}
+
+        <br> 
+
+        {{PorfileUpdateForm|crispy}}
+
+        <br>
+
+        <button class="btn btn-outline-primary btn-md w-100 btn-block p-4"  type="submit">Update</button>
+ 
+    </form>
+
+    <br> <br>
+    <a href="{% url 'delete-account' %}"><button class="btn btn-outline-danger btn-md w-100 btn-block p-4"]">Delete Account</button></a>
+    <br>
+</div>
+
+{% endblock %}
+</html>
+

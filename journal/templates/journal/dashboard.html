@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edenthough | Dashboard</title>
+</head>
+{% extends 'journal/navbar.html' %} 
+
+{% block content %}
+<br>
+
+<div class="container bg-white shadow-md p-5 form-layout">
+    <h2>{{user}}</h2>
+    
+    <br>
+
+    <p>Welcome, {{user}}! This is your dashboard</p>
+
+    <br>
+
+    <img style="width: 90px; height: 70px;" src="{{profilePic.profile_pic.url}}" alt="">
+    
+    <br>
+    
+
+</div>
+
+
+
+{% endblock %}
+</html>
