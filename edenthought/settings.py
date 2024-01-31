@@ -2,7 +2,7 @@
 # Import and initialise our envirnment variables
 import environ
 env = environ.Env()
-environ.Env.read_env
+environ.Env.read_env()
 
 from pathlib import Path
 
